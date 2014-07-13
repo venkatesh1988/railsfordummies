@@ -1,0 +1,46 @@
+<html>
+<head>
+<body>
+<style>
+ table,th,td
+  {
+    border:1px solid black;
+  }
+</style>
+<div class="container"> 
+	<div class="row"> 
+	  <div class="span4">
+          
+      
+            <div class="well">
+                <div>
+                	<table>
+                      <tr>
+                        <th>UserId</th>
+                        <th>UserName</th>
+                        <th>Email</th>
+                        <th>Options</th>
+                        <th>Options</th>
+                      </tr> 
+                      
+                      
+                    <% @newcontacts.each do |user|%>	       
+                             <tr> 
+                               <td><%=user.name %></td>
+                               <td><%=user.email %></td>
+<td><%=user.address %><td><%= link_to'Add User',phonebooks_index_path %></td><td><%= link_to 'Edit', edit_phonebook_path(user) %> </td>
+                    		     <% end %>                                     
+                             </tr>
+                    </table>  
+								
+				</div>
+			</div>
+			
+		    
+            
+	    </div>
+
+	</div>
+</div>
+</body>
+</html>

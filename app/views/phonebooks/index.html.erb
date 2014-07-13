@@ -1,0 +1,25 @@
+<html>
+<head>
+<body>
+ 
+  <div>
+    <string> Create Phone Book </strong>
+  <%= form_for @newcontact , :url => { :action => "add_user" } do |f| %>
+  <div>	<%= f.label  :name %>
+  	<%= f.text_field :name %> <br/> </div>
+  	
+  <div><%= f.label  :email %>
+  	<%= f.email_field :email%> <br/> </div>
+  	
+  <div><%= f.label  :address %>
+  	<%= f.text_field :address %> <br/> </div>
+
+  <div> <p> <%= f.submit "Save", class: "btn btn-primary" %> </p></div>
+  <% end %>
+  </div>
+
+
+
+</body>
+</head>
+</html>

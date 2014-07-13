@@ -1,0 +1,25 @@
+<html>
+<head>
+<body>
+ 
+  <div>
+  <h3><strong> Edit Phone Book </strong></h3>
+  <%= form_for @newcontact , :url => { :action => "update" } do |f| %>
+  <div>	<%= f.label  :name %>
+  	<%= f.text_field :name %> <br/> </div>
+  	
+  <div><%= f.label  :email %>
+  	<%= f.email_field :email%> <br/> </div>
+  	
+  <div><%= f.label  :address %>
+  	<%= f.text_field :address %> <br/> </div>
+
+  <div> <p> <%= f.submit "Update Detail", class: "btn btn-primary" %> </p></div>
+  <% end %>
+  </div>
+
+
+
+</body>
+</head>
+</html>
