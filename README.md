@@ -1,0 +1,4 @@
+railsfordummies
+===============
+
+dummy rails projects
