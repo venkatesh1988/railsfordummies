@@ -11,14 +11,23 @@ class PhonebooksController < ApplicationController
     	end
     end
     
+
     def show
     	@newcontacts = Phonebook.all
     end
 
+    def destroy
+        @newcontact = Phonebook.find params[:id]
+        if @newcontact.destroy
+            redirect_to :action => 'show'
+        end
+    end
 
     def edit
         @newcontact = Phonebook.find params[:id]
     end
+
+    
 
     def update
         
