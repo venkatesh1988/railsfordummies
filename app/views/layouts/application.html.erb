@@ -1,12 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Formag</title>
+  <title>Formag </title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div class="navbar navbar-inverse navbar-static-top">
+    <div class="navbar-inner">
+      <div class="container">
+         <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+        
+        <div class="nav-collapse">
+          <ul class="nav">
+            <li><a href="index">Home</a></li>
+            <li><a href= 'show'>show</a></li>      
+          </ul>
+        </div>
+        <div text-align : 'right'><a class="brand" href="show">PhoneBook App</a></div>
+      </div>
+    </div>
+  </div> <!-- End Navigation -->
+
 
 <%= yield %>
 

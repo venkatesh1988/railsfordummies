@@ -1,14 +1,20 @@
 class PhonebooksController < ApplicationController
-	
+
 	def index
 		@newcontact = Phonebook.new
 	end
    
-    def add_user
-    	@newcontact = Phonebook.create(book_params)
-    	if @newcontact.save
-    		redirect_to :action => 'show'
-    	end
+    def create
+    	@newcontact = Phonebook.create book_params
+        
+        if !@newcontact.errors.empty?
+            render :action => 'index'
+        else
+            
+            WelcomeMailer.welcome_mail(@newcontact).deliver
+            flash[:notice] = "Contact Successfully saved."
+            redirect_to phonebooks_show_path
+        end
     end
     
 
@@ -19,6 +25,7 @@ class PhonebooksController < ApplicationController
     def destroy
         @newcontact = Phonebook.find params[:id]
         if @newcontact.destroy
+            flash[:notice] = "Entry deleted successfully!"
             redirect_to :action => 'show'
         end
     end

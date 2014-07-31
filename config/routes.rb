@@ -1,8 +1,10 @@
 Formag::Application.routes.draw do
 
   
+  resources :names
+
   match '/phonebooks/index' => 'phonebooks#index', :via => 'get'
-  match '/phonebooks/add_user' => 'phonebooks#add_user', :via => 'post'
+  match '/phonebooks/create' => 'phonebooks#create', :via => 'post'
   
   match '/phonebooks/update' => 'phonebooks#update', :via=>'post'
   match '/phonebooks/delete' => 'phonebooks#delete', :via => 'get'

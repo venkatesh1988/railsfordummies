@@ -2,23 +2,51 @@
 <head>
 <body>
  
-  <div>
-    <string> Create Phone Book </strong>
-  <%= form_for @newcontact , :url => { :action => "add_user" } do |f| %>
-  <div>	<%= f.label  :name %>
-  	<%= f.text_field :name %> <br/> </div>
-  	
-  <div><%= f.label  :email %>
-  	<%= f.email_field :email%> <br/> </div>
-  	
-  <div><%= f.label  :address %>
-  	<%= f.text_field :address %> <br/> </div>
+ 
+ <div class="container" >
+  
+    <div class = "row">
+      <div class = "span4">
+        <div class = "offset3 span6">
+          <hr>
+           <div class = "well">     
+           <%= form_for @newcontact do |f | %>                 
+            <% if @newcontact.errors.any? %>
+              <div id="error_explanation">
+                <div class="alert alert-error">
+                  The form contains <%= pluralize(@newcontact.errors.count, "error") %>.
+                </div>
+                <ul>
+                  <% @newcontact.errors.full_messages.each do |msg| %>
+                    <li> <%= msg %></li>
+                  <% end %>
+                </ul>
+              </div>
+              <% end %>
+                    <p>
+                      <%= f.label :name %> <%= f.text_field :name %>
+                    </p>                    
+                    <p>
+                      <%= f.label :email %>
+                      <%= f.text_field :email %>
+                    </p>
 
-  <div> <p> <%= f.submit "Save", class: "btn btn-primary" %> </p></div>
-  <% end %>
-  </div>
+                    <p>
+                      <%= f.label :address %>
+                      <%= f.text_field :address %>
+                    </p>
 
-
+                    <p>
+                      <%= f.submit "Create", class: "btn btn-primary" %>
+                    </p>
+                  
+              </div>
+              <% end %>
+            </hr>
+        </div>
+       </div> 
+      </div>     
+    </div>
 
 </body>
 </head>
